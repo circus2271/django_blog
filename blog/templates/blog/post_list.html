@@ -8,14 +8,12 @@
     <title>{% block title %}Posts{% endblock %}</title>
   </head>
   <body>
+    <header class='header'>
+    </header>
     <!--<h2>Posts</h2>-->
     <div>
-      <div>
-        <header class='header'>
-        </header>
-      </div>
+
       {% for post in post_list %}
-        <div>
           <p>{{ post.name }}</p>
           <p>{{ post.text }}</p>
           <p>By: {{ post.author }}</p>
@@ -23,7 +21,6 @@
             <p>Comment: {{ comment.text }}</p>
           {% endfor %}
           <hr/>
-        </div>
       {% endfor %}
     </div>
   </body>
