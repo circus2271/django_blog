@@ -1,0 +1,34 @@
+<section class="articles">
+
+{% for article in articles %}
+<article class="article">
+  <a href="{% url 'blog:article_detail' article.pk %}">
+    <div class="image-wrapper"></div>
+  </a>
+  <div class="text-info">
+    <a style="color: inherit;
+      text-decoration: none;" href="{% url 'blog:article_detail' article.pk %}">
+      <h3 class="article__title">
+        {{article.pk}}
+      </h3>
+    </a>
+    <p class="article__small-description">
+      {{article.title}}
+    </p>
+    {% comment %}
+    {% if show_author_name != False %}
+    <p class="article__author">
+<!--      author:-->
+      <span class="material-symbols-outlined">
+person
+</span>
+      <a href="{% url 'blog:author_detail' article.author.pk %}" title="link to an article author page">
+        {{article.author.username}}
+      </a>
+    </p>
+    {% endif %}
+    {% endcomment %}
+  </div>
+</article>
+{% endfor %}
+</section>

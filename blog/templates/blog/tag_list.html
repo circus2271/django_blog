@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+
+<h2>
+  Available tags:
+</h2>
+
+<div class="available-tags">
+
+  {% for tag in tags %}
+    <a href="/tags/{{tag.slug}}" class="tag">
+      {{tag.slug}}
+    </a>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
