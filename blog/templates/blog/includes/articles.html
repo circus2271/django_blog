@@ -2,16 +2,21 @@
 
 {% for article in articles %}
 <article class="article">
-  {% if not draft %}
+  {% if draft %}
+  {% url 'blog:draft_detail' article.pk as page %}
+  {% elif not draft  %}
+  {% url 'blog:article_detail' article.pk as page %}
+  {% endif %}
 
-  <a href="{% url 'blog:article_detail' article.pk %}">
+
+  <a href="{{ page }}">
     <div class="image-wrapper"></div>
   </a>
 
   <div class="text-info">
 
     <a style="color: inherit;
-      text-decoration: none;" href="{% url 'blog:article_detail' article.pk %}">
+      text-decoration: none;" href="{{ page }}">
       <h3 class="article__title">
         {{article.pk}}
       </h3>
@@ -21,26 +26,7 @@
     </p>
 
 
-    {% elif draft %}
 
-    <a href="{% url 'blog:draft_detail' article.pk %}">
-      <div class="image-wrapper"></div>
-    </a>
-
-    <div class="text-info">
-
-
-    <a style="color: inherit;
-      text-decoration: none;" href="{% url 'blog:draft_detail' article.pk %}">
-      <h3 class="article__title">
-        {{article.pk}}
-      </h3>
-    </a>
-    <p class="article__small-description">
-      {{article.title}}
-    </p>
-
-    {% endif %}
     {% comment %}
     {% if show_author_name != False %}
     <p class="article__author">

@@ -22,12 +22,13 @@ class ArticleDetailView(DetailView):
 	queryset = Article.objects.filter(published=True)
 	context_object_name = 'article'
 
-# 	def get_context_data(self, **kwargs):
-# 		context = super().get_context_data(**kwargs)
-# # 		context['author'] = Author.objects.all()
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+# 		context['author'] = Author.objects.all()
 # 		context['author'] = Article.authors.all()
 # 		print(context['author'])
-# 		return context
+		print('context', context)
+		return context
 
 class DraftArticleListView(LoginRequiredMixin, ListView):
 	# model = Article
@@ -40,7 +41,8 @@ class DraftArticleListView(LoginRequiredMixin, ListView):
 
 
 	def get_login_url(self):
-		return reverse('blog:authors')
+# 		return reverse('blog:authors')
+		return reverse('admin:index')
 
 class DraftArticleDetailView(LoginRequiredMixin, DetailView):
 #	model = Article
@@ -52,7 +54,8 @@ class DraftArticleDetailView(LoginRequiredMixin, DetailView):
 	redirect_field_name = None
 
 	def get_login_url(self):
-		return reverse('blog:tags')
+# 		return reverse('blog:tags')
+		return reverse('admin:index')
 
 class AuthorListView(ListView):
 	model = Author

@@ -22,11 +22,13 @@
             tags
           </a>
         </li>
+        {% if user.is_authenticated %}
         <li>
           <a href="{% url 'blog:drafts' %}" title="link to drafts page">
             drafts
           </a>
         </li>
+        {% endif %}
       </ul>
     </nav>
   </div>
