@@ -23,8 +23,10 @@ class Article(models.Model):
 	description = models.TextField(max_length=145)
 	main_text = models.TextField(max_length=2000)
 	author = models.ForeignKey(Author, on_delete=models.PROTECT)
+	# TODO: set published_date only after actual publishment
 	published_date = models.DateField(auto_now_add=True)
-	updated = models.DateField(auto_now=True)
+	updated = models.DateField(auto_now=True, editable=False)
+	published = models.BooleanField(default=False)
 	# 	tags
 	# viewed number
 
