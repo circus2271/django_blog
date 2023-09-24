@@ -12,6 +12,14 @@ class Author(models.Model):
 	author_info = models.TextField(max_length=700, null=True)
 	# email
 
+	def published_articles(self):
+		published_articles = self.article_set.filter(published=True)
+		return published_articles
+
+	def drafts(self):
+		drafts = self.article_set.filter(published=False)
+		return drafts
+
 	def __str__(self):
 		return self.username
 
@@ -37,6 +45,14 @@ class Article(models.Model):
 class Tag(models.Model):
 	slug = models.CharField(max_length=24, unique=True)
 	articles = models.ManyToManyField(Article)
+
+	def published_articles(self):
+		published_articles = self.articles.filter(published=True)
+		return published_articles
+
+	def drafts(self):
+		drafts = self.articles.filter(published=False)
+		return drafts
 
 	def __str__(self):
 		return self.slug

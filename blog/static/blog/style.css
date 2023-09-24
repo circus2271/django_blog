@@ -102,3 +102,9 @@ h1, h2, h3, p, ul {
  }
 }
 
+.article__detail {
+  .image-wrapper {
+    min-height: 200px;
+    background: #eee;
+  }
+}

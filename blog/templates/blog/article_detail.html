@@ -3,29 +3,7 @@
 
 {% block hero_image %}
 
-<style>
-  .image-wrapper {
-    min-height: 200px;
-    background: #eee;
-
-    .hero-image {
-
-      &.hidden {
-          /*opacity: 0;*/
-       }
-    }
-  }
-
-</style>
-{% comment %}
-<header class="article__detail">
-  <div class="image-wrapper">
-<!--    <img src="#" alt="" class="hero-image">-->
-    <img src="{% static 'blog/images/zebra.jpg' %}" alt="samurai default image" class="hero-image hidden" onload="this.classList.remove('hidden')">
-  </div>
-</header>
-{% endcomment %}
-{% endblock %}
+{% endblock hero_image %}
 
 {% block content %}
 
@@ -46,4 +24,17 @@ qq <a href="{% url 'blog:author_detail' article.author.username %}">
 </a> <br>
 
 
+
+
+
+
+
+{% comment %}
+<header class="article__detail">
+  <div class="image-wrapper">
+    <!--    <img src="#" alt="" class="hero-image">-->
+    <img src="{% static 'blog/images/zebra.jpg' %}" alt="samurai default image" class="hero-image hidden" onload="this.classList.remove('hidden')">
+  </div>
+</header>
+{% endcomment %}
 {% endblock %}

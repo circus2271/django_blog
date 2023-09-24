@@ -32,10 +32,18 @@
 {% endif %}
 
 
+{% if user.is_authenticated %}
+  <h3>
+    Drafts
+  </h3>
+  {% include './includes/articles.html' with articles=drafts draft=True author=author %}
+
+{% endif %}
+
 <h3>
-  Related articles:
+  Published articles:
 </h3>
-{% include './includes/articles.html' with articles=published_articles show_author_name=False %}
+{% include './includes/articles.html' with articles=published_articles %}
 {% endblock %}
 
 
