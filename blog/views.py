@@ -93,14 +93,14 @@ class TagDetailView(DetailView):
 	context_object_name = 'tag'
 
 	def get_context_data(self, **kwargs):
-    		# Call the base implementation first to get a context
-    		context = super().get_context_data(**kwargs)
-    		# Add in the publisher
-    		print(context)
-    		context['zhzh'] = 15
-    		print(context)
+		# Call the base implementation first to get a context
+		context = super().get_context_data(**kwargs)
+		published_articles = context['tag'].articles.filter(published=True)
+		print('pa', published_articles)
+		context['published_articles'] = published_articles
+		print(context)
 
-    		return context
+		return context
 # #
 # 	def get_queryset(self):
 # 		slug = self.kwargs["slug"]

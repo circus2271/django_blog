@@ -9,7 +9,7 @@ tag name: {{ tag.slug }}<br>
   #{{tag.slug}} featured articles:
 </h2>
 
-{% include './includes/articles.html' with articles=tag.articles.all %}
+{% include './includes/articles.html' with articles=published_articles %}
 
 
 {{zhzh}}
