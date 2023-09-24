@@ -10,8 +10,6 @@ class Author(models.Model):
 	# TODO: validate username so it only starts with @
 	username = models.CharField(max_length=30, primary_key=True)
 	author_info = models.TextField(max_length=700, null=True)
-
-	# articles (get context from view)
 	# email
 
 	def __str__(self):
@@ -27,8 +25,7 @@ class Article(models.Model):
 	published_date = models.DateField(auto_now_add=True)
 	updated = models.DateField(auto_now=True, editable=False)
 	published = models.BooleanField(default=False)
-	# 	tags
-	# viewed number
+	# TODO: add current views number
 
 	class Meta:
 		ordering = ['-published_date']
