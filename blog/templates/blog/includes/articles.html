@@ -2,12 +2,11 @@
 
 {% for article in articles %}
 <article class="article">
-  {% if draft and author %}
-    {% url 'blog:draft_detail' author.pk article.pk as detail_page %}
+  {% if show_drafts %}
+    {% url 'blog:author_draft_detail' article.author.pk article.pk as detail_page %}
   {% else  %}
     {% url 'blog:article_detail' article.pk as detail_page %}
   {% endif %}
-
 
   <a href="{{ detail_page }}">
     <div class="image-wrapper"></div>

@@ -19,6 +19,14 @@ class ArticleDetailView(DetailView):
 	queryset = Article.objects.filter(published=True)
 	context_object_name = 'article'
 
+class DraftListView(LoginRequiredMixin, ListView):
+	queryset = Article.objects.filter(published=False)
+	context_object_name = 'drafts'
+	paginate_by = 8
+	template_name = 'blog/draft_list.html'
+
+	def get_login_url(self):
+    		return reverse('admin:index')
 
 class AuthorListView(ListView):
 	model = Author
