@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}Movie Theatre{% endblock %}</title>
+  <!--  load material icons-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="{% static 'outcinema/style.css' %}">
+</head>
+<body>
+  <div class="page">
+    {% include './includes/header.html' %}
+
+    <div class="main-content">
+      {% block hero_image %} {% endblock %}
+      <div class="wrapper">
+        {% block content %} {% endblock %}
+      </div>
+    </div>
+
+    {% include './includes/footer.html' %}
+  </div>
+</body>
+</html>
+
+{% comment %}
+  <div id="sidebar">
+    {% block sidebar %}
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+    {% endblock %}
+  </div>
+
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+{% endcomment %}
