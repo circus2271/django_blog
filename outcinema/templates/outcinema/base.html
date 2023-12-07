@@ -9,6 +9,13 @@
   <!--  load material icons-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="{% static 'outcinema/style.css' %}">
+
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
   <div class="page">
@@ -16,9 +23,9 @@
 
     <div class="main-content">
       {% block hero_image %} {% endblock %}
-      <div class="wrapper">
+<!--      <div class="wrapper">-->
         {% block content %} {% endblock %}
-      </div>
+<!--      </div>-->
     </div>
 
     {% include './includes/footer.html' %}

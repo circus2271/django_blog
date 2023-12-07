@@ -2,12 +2,62 @@
 
 
 {% block content %}
+
+{% comment %}
 aaa
 
 {{ data }}
-{# {% include './includes/articles.html' with articles=articles %} #}
-{% comment %}
 
+{% for film in films %}
+  {{ film.title }}
+  {{ film.photo }}
+{% endfor %}
+<br>
+<br>
+{% endcomment %}
+
+<!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    {% for slide in slider.slides.all %}
+    {# {{ slide.film.slider_image.url }} #}
+    <div class="swiper-slide">
+      <img src="{{ slide.film.slider_image.url }}" alt="{{ slide.film.title }}">
+      <div class="info">
+        <h3>
+          {{ slide.film.title }}
+        </h3>
+        <p>
+          {# {{ slide.film.short_description }} #}
+          {# начиная с {{ slide.film.start_date }} #}
+          {{ slide.film.start_date }}
+        </p>
+
+      </div>
+    </div>
+    {% endfor %}
+    ...
+  </div>
+  <!-- If we need pagination -->
+<!--  <div class="swiper-pagination"></div>-->
+<!--  <div class="swiper-button-next">next</div>-->
+<!--  <div class="swiper-button-prev">prev</div>-->
+</div>
+
+{% comment %}
+{% for slide in slider.slides.all %}
+{# {{ slide.film.slider_image.url }} #}
+<img src="{{ slide.film.slider_image.url }}" alt="{{ slide.film.title }}">
+{% endfor %}
+
+
+{% endcomment %}
+<br>
+<br>
+
+{% comment %}
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
@@ -27,6 +77,25 @@ aaa
 </div>
 {% endcomment %}
 
+<script>
+  console.log('swiper', Swiper)
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    // direction: 'vertical',
+    loop: true,
+    // slidesPerView: 2,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+
 {% endblock %}
-
-
