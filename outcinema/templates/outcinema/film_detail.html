@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+      <img src="{{ film.detail_page_top_image.url }}" alt="{{ slide.film.title }}">
+      <div class="info">
+        <h3>
+          {{ film.title }}
+        </h3>
+        <p>
+          {{ film.start_date }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+  <!-- If we need pagination -->
+<!--  <div class="swiper-pagination"></div>-->
+<!--  <div class="swiper-button-next">next</div>-->
+<!--  <div class="swiper-button-prev">prev</div>-->
+</div>
+
+<!--<br>-->
+<!--<br>-->
+
+
+
+{% endblock %}

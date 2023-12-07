@@ -24,6 +24,7 @@ aaa
     {% for slide in slider.slides.all %}
     {# {{ slide.film.slider_image.url }} #}
     <div class="swiper-slide">
+      <a href="{% url 'outcinema:film_detail' slide.film.pk %}" title="{{slide.film.title}}'s detail page">
       <img src="{{ slide.film.slider_image.url }}" alt="{{ slide.film.title }}">
       <div class="info">
         <h3>
@@ -36,6 +37,7 @@ aaa
         </p>
 
       </div>
+      </a>
     </div>
     {% endfor %}
     ...

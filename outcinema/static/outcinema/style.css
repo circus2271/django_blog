@@ -55,14 +55,16 @@ nav a {
     text-transform: uppercase;
 }
 
-.swiper {
+.swiper, {
     max-height: 679px;
     overflow: hidden;
 }
 
 .swiper-slide {
     position: relative;
+    /*max-width: 100%;*/
 }
+
 
 .swiper-slide .info {
     position: absolute;

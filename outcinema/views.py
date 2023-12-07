@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from .models import Film, HomepageSlider
+from django.views.generic import DetailView
 
 def test(request):
     return HttpResponse('test works')
@@ -13,6 +14,10 @@ def index(request):
 
 def films(request):
 	return render(request, 'outcinema/films.html')
+
+class FilmDetailView(DetailView):
+	model = Film
+	context_object_name = 'film'
 
 def events(request):
 	return render(request, 'outcinema/events.html')

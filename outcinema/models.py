@@ -16,6 +16,7 @@ class Film(models.Model):
 # 	genre
 # 	screenshots
 	slider_image = models.ImageField(upload_to='films')
+	detail_page_top_image = models.ImageField(upload_to='films')
 
 class HomepageSlider(models.Model):
 	pass
