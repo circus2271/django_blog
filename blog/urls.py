@@ -6,7 +6,7 @@ from . import views
 app_name='blog'
 urlpatterns = [
     path('test/', views.test, name='test'),
-#     path('', RedirectView.as_view(pattern_name='blog:articles'), name='home_page'),
+    path('', RedirectView.as_view(pattern_name='blog:articles'), name='home_page'),
     path('articles/', ArticleListView.as_view(), name='articles'),
     path('articles/<int:pk>', ArticleDetailView.as_view(), name='article_detail'),
     path('drafts/', DraftListView.as_view(), name='drafts'),

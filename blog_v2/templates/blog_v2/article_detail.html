@@ -1,0 +1,48 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block hero_image %}
+{% if article.hero_image %}
+  <figure class="image-wrapper">
+    <img src="{{ article.hero_image.url }}" alt="hero image">
+    <figcaption>
+      {{ article.title }}
+    </figcaption>
+  </figure>
+{% endif %}
+{% endblock hero_image %}
+
+{% block content %}
+
+{% if not article.hero_image %}
+<h2 class="article__title">
+  {{ article.title }}
+</h2>
+{% endif %}
+<p class="article__description">
+  {{ article.description }}
+</p>
+
+<p class="published-date">
+  {{ article.published_date }}
+</p>
+
+qq <a href="{% url 'blog_v2:author_detail' article.author.username %}">
+  {{ article.author.username }}
+</a> <br>
+
+
+
+
+
+
+
+{% comment %}
+<header class="article__detail">
+  <div class="image-wrapper">
+    <!--    <img src="#" alt="" class="hero-image">-->
+    <img src="{% static 'blog_v2/images/zebra.jpg' %}" alt="samurai default image" class="hero-image hidden" onload="this.classList.remove('hidden')">
+  </div>
+</header>
+{% endcomment %}
+{% endblock %}

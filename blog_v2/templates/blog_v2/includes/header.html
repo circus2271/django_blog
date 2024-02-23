@@ -1,0 +1,35 @@
+<div class="page__navbar">
+  <div class="wrapper">
+    <div class="logo">
+      <a href="{% url 'blog_v2:home_page' %}">
+        home page
+      </a>
+    </div>
+    <nav>
+      <ul class="links">
+        <li>
+          <a href="{% url 'blog_v2:articles' %}" title="link to articles">
+            articles
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'blog_v2:authors' %}" title="link to authors page">
+            authors
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'blog_v2:tags' %}" title="link to tags page">
+            tags
+          </a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'blog_v2:drafts' %}" title="link to drafts page">
+            drafts
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>

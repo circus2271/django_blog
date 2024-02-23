@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'outcinema',
-    'image_uploader'
+    'image_uploader',
+    'blog_v2'
 ]
 
 MIDDLEWARE = [

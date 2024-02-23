@@ -1,0 +1,48 @@
+<section class="articles">
+
+{% for article in articles %}
+<article class="article">
+  {% if show_drafts %}
+    {% url 'blog_v2:author_draft_detail' article.author.pk article.pk as detail_page %}
+  {% else  %}
+    {% url 'blog_v2:article_detail' article.pk as detail_page %}
+  {% endif %}
+
+  <a href="{{ detail_page }}">
+    <div class="image-wrapper"></div>
+  </a>
+
+  <div class="text-info">
+
+    <a href="{{ detail_page }}">
+      <h3 class="article__title">
+        {{article.pk}}
+      </h3>
+    </a>
+    <p class="article__small-description">
+      {{article.title}}
+    </p>
+
+  </div>
+</article>
+
+  {% empty %}
+    no articles yet
+{% endfor %}
+</section>
+
+
+
+{% comment %}
+{% if show_author_name != False %}
+<p class="article__author">
+  <!--      author:-->
+  <span class="material-symbols-outlined">
+person
+</span>
+  <a href="{% url 'blog_v2:author_detail' article.author.pk %}" title="link to an article author page">
+    {{article.author.username}}
+  </a>
+</p>
+{% endif %}
+{% endcomment %}

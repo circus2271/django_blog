@@ -23,8 +23,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('v2/', include('blog_v2.urls')),
 #     path('', RedirectView.as_view(pattern_name='outcinema.home_page'), name='home_page'),
-    path('', RedirectView.as_view(pattern_name='outcinema:homepage')),
+#     path('', RedirectView.as_view(pattern_name='outcinema:homepage')),
     path('outcinema/', include('outcinema.urls')),
     path('image_uploader/', include('image_uploader.urls'))
 ]

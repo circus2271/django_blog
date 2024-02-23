@@ -65,6 +65,14 @@ nav a {
     /*max-width: 100%;*/
 }
 
+.swiper-slide a {
+    display: block;
+    background: green;
+    /*background: lightgreen;*/
+    height: 200px;
+    width: 100%;
+}
+
 
 .swiper-slide .info {
     position: absolute;
